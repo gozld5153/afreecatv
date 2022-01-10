@@ -57,21 +57,6 @@ function App() {
       .catch((err) => console.log(err.response));
   }, [change]);
 
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0,
-    };
-
-    let observer;
-    const fetchElement = footer.current;
-    if (fetchElement) {
-      observer = new IntersectionObserver(handleScroll, options);
-      observer.observe(fetchElement);
-    }
-  }, [loading]);
-
   const handleScroll = (entry) => {
     if (entry[0].isIntersecting) {
       page++;
@@ -90,10 +75,32 @@ function App() {
         })
         .catch((err) => console.log(err.response));
     }
-    console.log(page);
   };
 
-  if (loading) return "아직 로딩중입니다!";
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "100px",
+      threshold: 0,
+    };
+
+    let observer;
+    const fetchElement = footer.current;
+    if (fetchElement) {
+      observer = new IntersectionObserver(handleScroll, options);
+      observer.observe(fetchElement);
+    }
+    return () => {
+      if (fetchElement) observer.disconnect(fetchElement);
+    };
+  }, [handleScroll]);
+
+  if (loading)
+    return (
+      <div id="containter">
+        <div id="loading"></div>
+      </div>
+    );
 
   return (
     <div className="wrap_main_list">
