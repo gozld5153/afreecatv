@@ -1,38 +1,219 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: #222;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrap_main_list {
+  position: relative;
+  padding: 20px;
+  min-width: 1024px;
+}
+
+.title-wrap .rt_group .reload {
+  position: relative;
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cpath d='M14.929 6.413L12.47 8.67a.7.7 0 01-1.174-.515V3.344a.7.7 0 011.174-.515l2.458 2.258a.9.9 0 010 1.326z' fill='%23555'/%3e%3cpath d='M11.606 5.5C7.6 5.5 4.352 8.858 4.352 13c0 4.142 3.248 7.5 7.254 7.5 4.006 0 7.253-3.358 7.253-7.5' stroke='%23555' stroke-width='1.5' stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e")
+    50% 50% no-repeat;
+  background-size: 100% 100%;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  font: 0/0 a;
+  vertical-align: middle;
+  border: none;
+}
+
+.title-wrap .rt_group .reload:hover {
+  cursor: pointer;
+}
+
+.title-wrap {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.title-wrap .rt_group select {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 2px;
+  vertical-align: middle;
+}
+
+.title-wrap h2 {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -20px;
+}
+
+.cBox {
+  width: calc(25% - ((20px * 4) / 4));
+  margin: 0 20px 0 0;
+}
+
+.thumbs-box {
+  position: relative;
+}
+
+.thumbs-box > a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: #f3f3f3;
+  border-radius: 8px;
+  font: 0/0 a;
+}
+
+.thumbs-box > a img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.thumbs-box .allow {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  background: rgba(0, 0, 0, 0.6);
+  height: 24px;
+  padding: 0 9px;
+  border: 1px solid #36caef;
+  box-sizing: border-box;
+  border-radius: 24px;
+  color: #00ddff;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.thumbs-box .time {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  background: rgba(0, 0, 0, 0.7);
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: -0.25px;
+  line-height: 19px;
+  z-index: 5;
+}
+
+.thumbs-box .btn-later {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cg fill='none' fill-rule='evenodd'%3e%3ccircle fill-opacity='.7' fill='%23000' cx='15' cy='15' r='15'/%3e%3cg stroke='%23FFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.125'%3e%3cpath d='M19.174 17.655v3.39h3.39'/%3e%3cpath d='M16.077 22.232c-.351.059-.702.078-1.072.078A7.308 7.308 0 017.7 15.005 7.308 7.308 0 0115.005 7.7a7.308 7.308 0 014.54 13.032'/%3e%3cpath d='M15.025 10.895v5.123h-3.04'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")
+    50% 50% no-repeat;
+  background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+  z-index: 5;
+  font: 0/0 a;
+}
+
+button {
+  border: none;
+}
+
+.cBox-info {
+  position: relative;
+  min-height: 107px;
+  margin-top: 11px;
+}
+
+.cBox-info .thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.cBox-info .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cBox-info div {
+  margin-left: 50px;
+}
+
+.cBox-info .title {
+  display: block;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cBox-info .details {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 13px;
 }
 
-.App-link {
-  color: #61dafb;
+.cBox-info .nick {
+  color: #4279ff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cBox-info .views:before {
+  content: "";
+  display: inline-block;
+  flex: 1 0 auto;
+  background: #a4a4a4;
+  width: 2px;
+  height: 2px;
+  margin: 0 6px 2px 5px;
+  border-radius: 50%;
+}
+
+.cBox-info .views span {
+  color: #888;
+}
+
+.cBox-info .views span:before {
+  content: "";
+  flex: 1 0 auto;
+  display: inline-block;
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3e%3cpath fill-rule='evenodd' fill='%23ADADAD' d='M11.98 9H3.54c-.23-2.04 1.54-4 4.22-4 1.44 0 2.68.6 3.44 1.52.6.71.89 1.6.78 2.48zM7.76 4.22c-1.1 0-2-.94-2-2.11S6.67 0 7.77 0s2 .94 2 2.1c0 1.18-.9 2.12-2 2.12zm-4.55.93c-.88 0-1.6-.76-1.6-1.7 0-.93.72-1.69 1.6-1.69.88 0 1.6.76 1.6 1.7 0 .93-.72 1.69-1.6 1.69zm.44.51l-.1.11A4.43 4.43 0 002.52 9H0c.2-1.88.77-3.34 3.52-3.34h.13z'/%3e%3c/svg%3e")
+    50% 50% no-repeat;
+  background-size: 100% 100%;
+  width: 12px;
+  height: 9px;
+  margin: 3px 2px 0 0;
+}
+
+.visible {
+  display: none;
+}
+.thumbs-box:hover .visible {
+  display: block;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: #222;
 }
